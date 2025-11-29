@@ -38,6 +38,12 @@ jobs:
         with:
           node-version: 22.12.0
 
+      - name: Build nocodb-sdk
+        run: |
+          pnpm install --ignore-scripts --no-frozen-lockfile
+          pnpm run build
+        working-directory: ./packages/nocodb-sdk
+
       - name: Build nocodb and docker files
         run: |
           pnpm install --ignore-scripts --no-frozen-lockfile
